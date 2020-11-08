@@ -5,7 +5,7 @@ import "./style.css";
 const Layout = (props) => {
   return (
     <div className="layout">
-      <Navbar />
+      {<Navbar />}
       {props.children}
     </div>
   );
