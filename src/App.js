@@ -5,6 +5,7 @@ import Home from "./containers/Home";
 import Signin from "./containers/Signin";
 import Signup from "./containers/Signup";
 import Profile from "./containers/Profile";
+import CreatePost from "./containers/CreatePost";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />
+        <Route path="/createpost" component={CreatePost} />
       </Switch>
     </div>
   );

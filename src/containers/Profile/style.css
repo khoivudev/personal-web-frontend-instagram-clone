@@ -1,0 +1,35 @@
+.profile {
+    max-width: 700px;
+    margin: 0px auto;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid grey;
+}
+
+.profile-info-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 80px;
+}
+
+.profile-info-amount {
+    display: flex;
+    justify-content: space-between;
+    width: 110%;
+}
+
+.profile-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.profile-gallery-item img {
+    width: 200px;
+    height: 200px;
+}

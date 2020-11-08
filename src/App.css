@@ -1,1 +1,32 @@
-.app {}
+.app {
+    margin: 0;
+}
+
+.my-card {
+    margin: 30px auto;
+}
+
+.auth-card {
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 10px auto;
+}
+
+.text-logo {
+    color: black;
+    font-family: 'Grand Hotel', cursive;
+}
+
+nav .brand-logo {
+    color: black;
+    font-family: 'Grand Hotel', cursive;
+}
+
+
+/* label underline focus color */
+
+input:focus {
+    border-bottom: 1px solid #64b5f6 !important;
+    box-shadow: 0 1px 0 0 #64b5f6 !important;
+}
