@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Redirect } from "react-router-dom";
 import axios from "../../helpers/axios";
 import { emailRegex } from "../../helpers/regex";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import M from "materialize-css";
 import Layout from "../../components/Layout";
 import "./style.css";
+import { AuthContext } from "../../contexts/auth.context";
 
 const Signin = () => {
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { auth, dispatch } = useContext(AuthContext);
+
+  if (auth.authenticate) {
+    return <Redirect to={`/`} />;
+  }
 
   const validateField = () => {
     if (!emailRegex.test(email)) {
@@ -29,13 +35,17 @@ const Signin = () => {
       .post("/auth/signin", { email, password })
       .then((res) => {
         if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
+          dispatch({
+            type: "LOGIN_SUCCESS",
+            payload: {
+              token: res.data.token,
+              user: res.data.user,
+            },
+          });
           M.toast({
             html: "Logged in Successfully",
             classes: "green darken-1",
           });
-          history.push("/");
         }
       })
       .catch((error) => {
