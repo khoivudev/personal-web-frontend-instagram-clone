@@ -29,6 +29,8 @@ const Signin = () => {
       .post("/auth/signin", { email, password })
       .then((res) => {
         if (res.status === 200) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
           M.toast({
             html: "Logged in Successfully",
             classes: "green darken-1",
@@ -51,6 +53,7 @@ const Signin = () => {
               <input
                 type="text"
                 placeholder="Email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -60,6 +63,7 @@ const Signin = () => {
               <input
                 type="password"
                 placeholder="Password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
