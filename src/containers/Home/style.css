@@ -1,7 +1,16 @@
+.empty {
+    text-align: center;
+}
+
 .home-card {
     max-width: 500px;
     height: max-content;
     margin: 26px auto;
+}
+
+.card-image img {
+    max-height: 750px;
+    max-width: 650px;
 }
 
 .home-card-title {
